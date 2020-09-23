@@ -1,0 +1,455 @@
+.row>*{
+   //border: solid 1px red;
+}
+// ------------------
+//      Colores
+// ------------------
+$primario: #30529a;
+$secundario: #35363c;
+$texto: #696969;
+/*-------------------
+     Tipografias
+--------------------*/
+
+html {
+    font-size: 13px;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: $texto;
+}
+
+/*------------------------
+Estilos grales de botones
+-------------------------*/
+
+.btn {
+    border-radius: 2rem;
+    padding: .6rem 2rem;
+    font-weight: bold;
+}
+
+/*----------------------
+Override color primario
+-----------------------*/
+
+.bg-primary {
+    background-color: $primario !important;
+}
+
+.text-primary {
+    color: $primario !important;
+}
+
+/* override boton primario*/
+
+.btn-primary {
+    color: #fff;
+    background-color: $primario;
+    border-color: $primario;
+    position: relative;
+    overflow: hidden;    /*permite q el elem de animacion no sobresalga*/
+    z-index: 1;    /*poner caja blanca por detras de texto*/
+    transition: all .5s ease; /*q vuelva a quitar animacion*/
+}
+
+.btn-primary:hover {
+    color: $secundario;
+    background-color: #fff;
+    border-color: $primario;
+}
+
+.btn-primary:active {
+    color: $secundario !important;
+    background-color: lighten($primario, 5%) !important;
+    border-color: lighten($primario, 8%) !important;
+}
+
+.btn-primary:focus {
+    color: $secundario !important;
+    box-shadow: 0 0 0 0.2rem rgba($primario, .5) !important;
+}
+
+.btn-primary:after {
+    font-family: 'Font Awesome 5 Free';
+    content: "\f138";
+    font-weight: 900;
+    font-size: 1rem;
+    position: relative;
+    left: .6rem;
+    top: .1rem;
+    transition: left .3s ease; /*no lleva all para q se vea la transition del icono >*/
+}
+
+.btn-primary:hover:after,
+.btn-primary:focus:after,
+.btn-primary:active:after {
+    left: .25rem;
+}
+
+/* caja blanco de efecto boton*/
+
+.btn-primary:before {
+    content: "";
+    width: 0px;
+    height: 100%;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    transform: skew(45deg, 0deg);
+    transition: all .3s ease;
+}
+
+.btn-primary:hover:before,
+.btn-primary:focus:before,
+.btn-primary:active:before {
+    width: 130%;
+    left: -15%;
+    z-index: -1;    /*poner caja blanca por detras de texto*/
+}
+
+/*------------------------
+Override color secundario
+------------------------*/
+
+.bg-secondary {
+    background-color: $secundario !important;
+}
+
+.text-secondary {
+    color: $secundario !important;
+}
+
+/*------------------------
+Estilos .social
+------------------------*/
+
+.social li a i {
+    color: #fff;
+    font-size: 1.5rem;
+    padding: .8rem 1rem;
+    opacity: .8;
+    transition: all .3s ease-in-out;
+}
+
+.social li a i:hover {
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+/*------------------------
+Estilos #menu-navegacion
+------------------------*/
+
+#menu-navegacion .navbar-toggler {
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    outline: 0;
+}
+
+#menu-navegacion .boton-menu:before {
+    font-family: 'Font Awesome 5 Free';
+    content: "\f0c9";
+    font-weight: 900;
+    font-size: 2rem;
+    color: #ffffff;
+}
+/*-----Estilos icono X del boton menu-----*/
+#menu-navegacion .icono-cerrar:before {
+    content: "\f00d";
+    position: relative;
+    left: .2rem;
+}
+
+/*-----Estilos links navbar--------------*/
+
+.navbar-dark .navbar-nav .nav-link {
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    border-radius: .5rem;
+    transition: all .3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:after {
+    font-family: 'Font Awesome 5 Free';
+    content: "\f105";
+    font-weight: 900;
+    color: #ffffff;
+    transition: all .3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    background-color: lighten($secundario, 10%);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover:after {
+    transform: rotateZ(180deg);
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+    background-color: $primario;
+}
+/*--- Clase cuando barra naveg queda fija ---*/
+.menu-fijo{
+    transition: all .5s ease;
+    background: darken($secundario, 10) !important;
+    width: 100% !important;
+}
+.menu-fijo .logo{
+    display: block;
+}
+
+/*---Estilos Swiper---*/
+
+/*------------------------
+Estilos animacion
+------------------------*/
+.swiper-slide{
+    height: 34rem; /*450px aprox*/
+    text-align: center;
+    color: #fff;
+    background-size: cover;
+    background-position: center center;
+    
+}
+.swiper-slide:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    opacity: .4;
+    
+}
+/*--Personalizando botones slider--*/
+.swiper-button-prev,
+.swiper-button-next{
+    background-image: none;
+    background-color: rgba(0,0,0, 0.29);
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 50%;
+    transition: all .5s ease;
+}
+.swiper-button-prev:before,
+.swiper-button-next:before{
+    font-family: 'Font Awesome 5 Free';
+    content: "\f060";
+    font-weight: 900;
+}
+.swiper-button-next:before{
+    transform: rotate(180deg);
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover{
+    color: $primario;
+    background-color: rgba(0,0,0, 0.46);
+
+}
+.swiper-pagination-bullet {
+    margin: 0 .4rem !important;
+    width: 1rem;
+    height: 1rem;
+    color: $primario !important;
+}
+.swiper-pagination-bullet-active {
+    background-color: $primario;
+    outline: 0;
+}
+
+/*------------------------
+Estilos Secicon bienvenidos
+------------------------*/
+.contenedor-video a{
+    background-color: rgba(255,255,255,0.79);
+    width: 7rem;
+    height: 7rem;
+    display: flex;
+    border-radius: 50%;
+    color: $primario;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);    
+    background-clip: padding-box;
+    border: solid 0 transparent;
+    transition: all .5s ease;
+}
+.contenedor-video a:hover{
+    background-color: $primario;
+    color: #fff;
+    border: solid 10px rgba(255,255,255,0.5);
+}
+.contenedor-video img{
+    transition: all .5s ease;
+}
+.contenedor-video:hover img{
+    
+    transform: scale(1.2);
+}
+/*------------------------
+Estilos #te-ayudamos
+------------------------*/
+#te-ayudamos{
+    position: relative;
+    transform: skew(0,6deg)
+}
+#te-ayudamos:before{
+    content:"";
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+#te-ayudamos .container{
+    transform: skew(0,-6deg)
+}
+/*------------------------
+Estilos #premios
+------------------------*/
+.contador-linea{
+    background-color: $primario;
+    width: 4rem;
+    height: .4rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all .5s ease;
+}
+#premios .col-6 i{
+    color: $primario;
+    transition: all .3s ease;
+}
+#premios .col-6:hover i{
+    color: $secundario;
+}
+#premios .col-6:hover .contador-linea{
+    bottom: 1rem;
+    transform: translateX(-50%) rotate(180deg); //mueve al estado orig y dsps gira
+    background-color: $secundario;
+}
+/*------------------------
+Estilos #Blog
+------------------------*/
+#blog:before{
+    content: "";
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+/*------------------------
+Estilos #contacto
+------------------------*/
+#contacto .detalle-rectangulo {
+    position: absolute;
+    background-color: $primario;
+    height: 2.5rem;
+    width: 2.5rem;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) translateY(50%) rotate(45deg);
+}
+
+
+/*------------------------
+Estilos footer
+------------------------*/
+.columna-inclinada:before{
+    content: "";
+    position: absolute;
+    background: $primario;
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    left: -100%;
+}
+.enlaces-secundario {
+    border-bottom: 1px solid #5d555f;
+    box-shadow: 0 1px #212529;
+}
+.enlaces-secundario a{
+    padding: 1rem;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+/* Estilos IE11 */
+.ie11 #bienvenidos .contenedor-video{
+    width: 100%;
+}
+.ie11 .navbar-dark .navbar-nav .nav-link:after {
+    display: block;
+}
+
+/*------------------------
+Estilos Modal Politicas
+------------------------*/
+.modal-body{
+    height: 300px;
+    width: 100%;
+    overflow-y: auto;
+  }
+/*------------------------
+***** media queries *****
+------------------------*/
+
+@media(min-width:768px) {
+    .navbar-dark .navbar-nav .nav-link:after {
+        content: "";
+    }
+    .navbar-dark .navbar-nav .nav-link {
+        padding: .7rem 1.2rem;
+        border-radius: 1.5rem;
+    }
+    #te-ayudamos{
+        transform: skew(0,3deg)
+    }
+    #te-ayudamos .container{
+        transform: skew(0,-3deg)
+    }
+    .columna-inclinada:before{
+        right: 0;
+        left: -300%;
+        transform: skewX(20deg);
+    }
+}
+/*-- Tamaños del slide y fuentes --*/
+@media(min-width:990px){
+    html{
+        font-size: 16px;
+    }
+    .swiper-slide{
+        height: 37.5rem; /*600px aprox*/      
+    }
+    .modal-body{
+        height: 350px;
+      }
+}
+@media(min-width:1200px){
+    .swiper-slide{
+        height: 44rem; /*700px aprox*/      
+    }
+}
